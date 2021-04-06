@@ -9,12 +9,12 @@
 		{
 			if(!isset($_GET['url'])){
 				require_once __DIR__.'/../controllers/homepageCtrl.php';
-				$this->controller = new homepage();
+				$this->controller = new homepageCtrl();
 			}
 			else{
 				$url = $this->getUrl();
 				if(file_exists(__DIR__.'/../controllers/'.$url[0].'Ctrl.php')){
-					$this->controller = $url[0];
+					$this->controller = $url[0]."Ctrl";
 					require_once(__DIR__.'/../controllers/'.$url[0].'Ctrl.php');
 					unset($url[0]);
 				}

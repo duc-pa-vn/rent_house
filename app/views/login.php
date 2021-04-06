@@ -6,6 +6,14 @@
 	<title>Document</title>
 	<style>
 		
+		ul#ulheader li{
+			display: inline;
+			padding: 20px;
+		}
+		#divheader{
+			text-align: right;
+			margin-right: 2px;
+		}
 	</style>
 </head>
 <body>
@@ -13,11 +21,18 @@
 	<div>
 		<div>
 			<h2>Sign in</h2>
-			<form action="#" method="POST">
-				<input type="text" name="username">
-				<span><?php echo $data['usernameError']; ?></span>
-				<input type="text" name="password">
-				<span><?php echo $data['passwordError'] ?></span>
+			<form action="http://localhost:8088/public?url=users/login" method="POST">
+				<p>
+					<div>username</div>
+					<input type="text" name="username">
+					<span><?php echo $data['usernameError']; ?></span>
+				</p>
+				<p>
+					<div>password</div>
+					<input type="password" name="password">
+					<span><?php echo $data['passwordError'] ?></span>
+				</p>
+				
 				<button id="submit" type="submit" value="submit">Submit</button>
 			</form>
 		</div>

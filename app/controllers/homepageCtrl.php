@@ -3,9 +3,14 @@
  * 
  */
 	require_once __DIR__.'/../core/controller.php';
-	class homepage extends controller
+	require_once __DIR__.'/../controllers/housesCtrl.php';
+
+	class homepageCtrl extends controller
 	{
 		public function __construct(){
-			$this->view('index');
+			$housesCtrl = new housesCtrl();
+			$data =  $housesCtrl->getAll();
+			$this->view('index', $data);
 		}
+
 	}

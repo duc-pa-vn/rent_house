@@ -17,17 +17,4 @@
 			}	
 
 		}
-
-		public function bind($param, $value, $type = null){
-			switch(is_null($type)){
-				case is_int($value): $type = PDO::PARAM_INT;
-				break;
-				case is_bool($value): $type = PDO::PARAM_BOOL;
-				break;
-				case is_null($value): $type = PDO::PARAM_NULL;
-				break;
-				default: $type = PDO::PARAM_STR;
-			}
-			return bindValue($param, $value, $type);
-		}
 	}
