@@ -10,6 +10,7 @@
 			if(!isset($_GET['url'])){
 				require_once __DIR__.'/../controllers/homepageCtrl.php';
 				$this->controller = new homepageCtrl();
+				$this->controller->getAll();
 			}
 			else{
 				$url = $this->getUrl();

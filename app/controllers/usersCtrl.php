@@ -153,7 +153,7 @@ class usersCtrl extends controller
         //session_start();
         $_SESSION['username'] = $user['username'];
         //$_SESSION['email'] = $user->email;
-        header('location:http://localhost:8088/public?url=homepage');
+        header('location:http://localhost:8088/public');
     }
 
     public function logout() {

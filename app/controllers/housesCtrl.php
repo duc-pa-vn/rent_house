@@ -11,4 +11,9 @@
 			$data = $this->model->getAll();
 			return $data;
 		}
+
+		public function filterHouseCtrl($condition){
+			$list = $this->model->filterHouseModel($condition);
+			return $list;
+		}
 	}

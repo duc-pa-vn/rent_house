@@ -2,9 +2,13 @@
 require_once __DIR__.'/../database/database.php';
 	class users extends database{
 		
+		public function __construct(){
+			$this->connect();
+		}
+
 		public function login($data){
 			$sql = 	'SELECT * FROM rent_house.users where name =:username';
-			$stmt = $this->connect()->prepare($sql);
+			$stmt = $this->connect->prepare($sql);
 			$stmt->bindValue(':username', $data['username']);
 			$stmt->execute();
 			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -17,7 +21,7 @@ require_once __DIR__.'/../database/database.php';
 
 		public function register($data){
 			$sql = 'INSERT INTO rent_house.users (name, email, pass) values (:username, :email, :password)';
-			$stmt = $this->connect()->prepare($sql);
+			$stmt = $this->connect->prepare($sql);
 			$stmt->bindValue(':username',$data['username']);
 			$stmt->bindValue(':email',$data['email']);
 			$stmt->bindValue('password',$data['password']);

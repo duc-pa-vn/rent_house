@@ -33,45 +33,33 @@
  
 			border: solid;
 			display: inline-block;
+			width: 1500px;
 		}
-		.image1{
+		/*.image1{
 			width: 
-		}
-		.display1{
+		}*/
+		/*.display1{
 			display: inline-block;
-		}
+		}*/
 	</style>
 </head>
 <body>
 	<?php include "header.php" ?>
-	<div id="filterform">
-		<form action="#">
-			<h2 class="margin1 align1">tim kiem</h2>
-			<div class="margin1">
-				<p>khu vuc<p/>
-				<input type="text" name="addr" id="khuvuc" class="text1">	
-			</div>
-			<div class="margin1">
-				<p>gia</p>
-				<label for="from">tu</label>
-				<input type="text" name="from" id="from" class="text1">
-				<label for="to" >den</label>
-				<input type="text" name="to" id="to" class="text1">
-			</div>
-			<div class="margin1">
-				<p><label for="s">dien tich</label></p>
-				<input type="text" name="from" id="from" class="text1">
-				<input type="text" name="to" id="to" class="text1">
-			</div>
-			<div class="margin1">
-				<label for="type">loai nha</label>
-			</div>
-		</form>
-	</div>
+	<?php include "filter.php" ?>
 	<div id="listhouse">
 		<div >
 			<div class="display1">
-				<img src="<?php echo"#"?>" class="image1">
+				<img src="<?php echo "#"?>" class="image1">
+				<div id="list"></div>
+				<div>
+					<?php
+						foreach (json_decode($data) as $key => $value) {
+							print_r($value);
+							echo "<br/>";
+						}
+						//print_r(json_decode($data));
+					 ?>
+				</div>
 			</div>
 
 		</div>
