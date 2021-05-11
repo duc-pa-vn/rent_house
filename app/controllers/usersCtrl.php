@@ -15,6 +15,7 @@ class usersCtrl extends controller
         $data = [
             'username' => '',
             'email' => '',
+            'phone' => '',
             'password' => '',
             'confirmPassword' => '',
             'usernameError' => '',
@@ -29,6 +30,7 @@ class usersCtrl extends controller
             $data = [
                 'username' => trim($_POST['username']),
                 'email' => trim($_POST['email']),
+                'phone' => trim($_POST['phone']),
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
                 'usernameError' => '',

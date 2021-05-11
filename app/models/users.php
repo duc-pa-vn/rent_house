@@ -20,10 +20,11 @@ require_once __DIR__.'/../database/database.php';
 		}	
 
 		public function register($data){
-			$sql = 'INSERT INTO rent_house.users (name, email, pass) values (:username, :email, :password)';
+			$sql = 'INSERT INTO rent_house.users (name, email, phone, pass) values (:username, :email, :phone, :password)';
 			$stmt = $this->connect->prepare($sql);
 			$stmt->bindValue(':username',$data['username']);
 			$stmt->bindValue(':email',$data['email']);
+			$stmt->bindValue(':phone',$data['phone']);
 			$stmt->bindValue('password',$data['password']);
 			if($stmt->execute()){
 				return true;

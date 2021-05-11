@@ -16,4 +16,8 @@
 			$list = $this->model->filterHouseModel($condition);
 			return $list;
 		}
+
+		public function addHouse($data){
+			return 1;
+		}
 	}
