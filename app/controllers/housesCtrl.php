@@ -46,10 +46,10 @@
 				if(isset($_POST["submit"])) {
 				  $check = getimagesize($value["tmp_name"]);
 				  if($check !== false) {
-				    echo "File is an image - " . $check["mime"] . ".";
+				    // echo "File is an image - " . $check["mime"] . ".";
 				    $uploadOk = 1;
 				  } else {
-				    echo "File is not an image.";
+				    // echo "File is not an image.";
 				    $uploadOk = 0;
 				  }
 				}
@@ -67,17 +67,21 @@
 				// if everything is ok, try to upload file
 				} else {
 				  if (move_uploaded_file($value["tmp_name"], $target_file)) {
-				    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+
+				    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
 				  } else {
-				    echo "Sorry, there was an error uploading your file.";
+				    // echo "Sorry, there was an error uploading your file.";
 				  }
 				}  			
 			}
-  			echo "<pre>";
-  			print_r($dataPost);
-  			echo "</pre>";
+  			// echo "<pre>";
+  			// print_r($dataPost);
+  			// echo "</pre>";
   			// echo $_SESSION['username'];
-  			// $this->model->insertHouse($dataPost);
+  			$insertBool = $this->model->insertHouse($dataPost);
+  			if($insertBool) $suc = "them thanh cong";
+  			else $suc = "ko them dc";
+  			$this->view('add_page', $suc);
   			// echo "<pre>";
   			// print_r($tmpFiles);
   			// echo "</pre>";
@@ -118,8 +122,8 @@
 		    return $randomString;
 		}
 
-		public function getId(){
-			$user = $_SESSION['username'];
-			$this->model->getIduser($user);
-		}
+		// public function getId(){
+		// 	$user = $_SESSION['username'];
+		// 	$this->model->getIduser($user);
+		// }
 	}

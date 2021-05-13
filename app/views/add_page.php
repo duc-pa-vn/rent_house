@@ -20,7 +20,10 @@
 </head>
 <body>
 	<?php include "header.php" ?>
-	<h1>DANG TIN</h1>
+	<h1 style="display: inline-block; border: solid;">DANG TIN</h1>
+	<div style="display: inline-block;background: green">
+		<?php if(isset($suc)) echo "<p>".$suc."</p>";?>
+	</div>
 	<div>
 		<form action="http://localhost:8088/public?url=houses/addHouse" method="POST" class="form" enctype="multipart/form-data">
 			<div class="">
