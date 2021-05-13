@@ -16,7 +16,7 @@
 			}       
 			// public function filter
 			public function filterHouseModel($data){
-				$sql = 'SELECT * FROM rent_house.houses where addr LIKE :site and cost >= :costfrom and cost <= :costto and s >= :sfrom and s <=:sto and type LIKE :type';
+				$sql = 'SELECT * FROM rent_house.houses where site LIKE :site and cost >= :costfrom and cost <= :costto and s >= :sfrom and s <=:sto and type LIKE :type';
 				// print_r($data);
 				// echo "<br/>";
 				$stmt = $this->connect->prepare($sql);
