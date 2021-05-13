@@ -22,17 +22,20 @@
 	<?php include "header.php" ?>
 	<h1>DANG TIN</h1>
 	<div>
-		<form action="http://localhost:8088/public?url=houses/addHouse" method="POST" class="form">
+		<form action="http://localhost:8088/public?url=houses/addHouse" method="POST" class="form" enctype="multipart/form-data">
 			<div class="">
-				<p>khu vuc<p/>
+				<p>quan<p/>
 				<select name="site" id="site">
-					<option value="">tat ca khu vuc</option>
 					<option value="hai ba trung">hai ba trung</option>
 					<option value="hoan kiem">hoan kiem</option>
 					<option value="dong da">dong da</option>
 					<option value="hoang mai">hoangmai</option>
 					<option value="thanh xuan">thanh xuan</option>
 				</select>
+			</div>
+			<div>
+				<p>dia chi cu the</p>
+				<input type="text" name="addr" required="required">
 			</div>
 			<div class="">
 				<p>gia</p>
@@ -41,6 +44,11 @@
 			<div class="">
 				<p>dien tich</p>
 				<input type="tel" name="s" pattern="[0-9]{1,4}" required="required">
+
+			</div>
+			<div class="">
+				<p>mieu ta nha</p>
+				<input type="text" name="scribble" style="width: 99%">
 			</div>
 			<div class="margin1">
 				<p><label for="type">loai nha</label></p>
@@ -52,14 +60,15 @@
 			</div>
 			<div class="">
 				<p>anh chinh</p>
-				<input type="file" name="main_img">
+				<input type="file" name="main_img" required="required">
 			</div>
 			<div class="">
 				<p>anh them</p>
-				<input type="file" name="extra_img" multiple>
+				<input type="file" name="extra_img[]" multiple>
 			</div>
 			<br>
-			<button type="submit" name="submit">submit</button>
+			<!-- <button type="submit" name="submit">submit</button> -->
+			<input type="submit" value="submit1" name="submit">
 		</form>
 	</div>
 	

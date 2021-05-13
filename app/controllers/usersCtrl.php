@@ -46,6 +46,11 @@ class usersCtrl extends controller
                 $data['usernameError'] = 'Please enter username.';
             } elseif (!preg_match($nameValidation, $data['username'])) {
                 $data['usernameError'] = 'Name can only contain letters and numbers.';
+            }else {
+                //Check if name exists.
+                if ($this->userModel->findUserByName($data['username'])) {
+                $data['usernameError'] = 'Name is already taken.';
+                }
             }
 
             //Validate email

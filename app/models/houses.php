@@ -35,4 +35,21 @@
 				// var_dump($row);
 				return $row;
 			}
+
+			public function insertHouse($data){
+				$sql = 'INSERT INTO rent_house.houses (site, addr, cost, s, type, scribble, iduser, img) values (:site, :addr, :cost, :s, :type, :scribble, :iduser, :img")';
+				$stmt = $this->connect->prepare($sql);
+
+			}
+
+			public function getIduser($username){
+				$sql = 'SELECT id FROM rent_house.users where name = :username';
+				$stmt = $this->connect->prepare($sql);
+				$stmt->bindValue(':username',$username);
+				
+				$stmt->execute();
+				$id = $stmt->fetch();
+				return $id['id'];
+			}
+
 		}	

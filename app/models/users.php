@@ -36,7 +36,19 @@ require_once __DIR__.'/../database/database.php';
 			$sql = 'SELECT * FROM rent_house.users where email = :email';
 			$stmt = $this->connect()->prepare($sql);
 			$stmt->bindValue(':email',$email);
-			if($stmt->rowCount() > 0) return true;
+			$stmt->execute();
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			if(count($result)>0) return true;
+			return false;
+		}
+
+		public function findUserByName($name){
+			$sql = 'SELECT * FROM rent_house.users where name = :name';
+			$stmt = $this->connect()->prepare($sql);
+			$stmt->bindValue(':name',$name);
+			$stmt->execute();
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			if(count($result)>0) return true;
 			return false;
 		}
 	}
