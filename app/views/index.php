@@ -22,18 +22,18 @@
 		}
 		#filterform{
 			border: solid;
-			width: 300px;
+			width: 15%;
 			height: 500px;
 			display: inline-block;
+			margin-top: -10px;
 		}
 		.align1{
 			text-align: center;
 		}
 		#listhouse{
- 
 			border: solid;
 			display: inline-block;
-			width: 1500px;
+			width: 84%;
 		}
 		/*.image1{
 			width: 
@@ -45,8 +45,7 @@
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 	<script type="text/javascript">
 		var getCookieValue = (name) => (
-  			document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
-		)
+  			document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || '');
 		// $(document).ready(function(){
 		// 	if(getCookieValue('none_user') != '') 	alert(getCookieValue('none_user')); 
 		// });
@@ -57,26 +56,27 @@
 </head>
 <body>
 	<?php include "header.php" ?>
-	<?php include "filter.php" ?>
-	<div id="listhouse">
-		<div >
-			<div class="display1">
-				<img src="<?php echo "#"?>" class="image1">
-				<div id="list"></div>
-				<div>
-					<?php
-						foreach (json_decode($data) as $key => $value) {
-							print_r($value);
-							echo "<br/>";
-						}
-						//print_r(json_decode($data));
-					 ?>
+	<div>
+		<?php include "filter.php" ?>
+		<div id="listhouse">
+			<div >
+				<div class="display1">
+					<img src="<?php echo "#"?>" class="image1">
+					<div id="list"></div>
+					<div>
+						<?php
+							foreach (json_decode($data) as $key => $value) {
+								print_r($value);
+								echo "<br/>";
+							}
+							//print_r(json_decode($data));
+						 ?>
+					</div>
 				</div>
 			</div>
-
 		</div>
-
 	</div>
+	
 </div>
 </body>
 </html>	

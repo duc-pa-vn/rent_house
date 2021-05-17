@@ -81,7 +81,9 @@
   			$insertBool = $this->model->insertHouse($dataPost);
   			if($insertBool) $suc = "them thanh cong";
   			else $suc = "ko them dc";
-  			$this->view('add_page', $suc);
+  			setcookie("AHreport",$suc, time()+1);
+  			// echo $suc[0];
+  			$this->view('add_page');
   			// echo "<pre>";
   			// print_r($tmpFiles);
   			// echo "</pre>";

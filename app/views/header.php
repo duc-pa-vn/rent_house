@@ -1,5 +1,6 @@
 <div id="divheader">
 	<ul id="ulheader">
+		<li><a href="http://localhost:8088/public?url=homepage/savePage">Da luu</a></li>
 		<li><a href="http://localhost:8088/public">Tim tro</a></li>
 		<li><a href="http://localhost:8088/public?url=homepage/addPage">Dang tin</a></li>
 		<li>
