@@ -44,11 +44,23 @@
 		public function getSaved(){
 			$sql = 'SELECT idhouse from rent_house.saves where iduser = :iduser';
 			$stmt = $this->connect->prepare($sql);
+			// echo $this->getIduser($_SESSION['username']);
 			$iduser = $this->getIduser($_SESSION['username']);
+			// echo $iduser;
 			$stmt->bindValue(':iduser', $iduser);
 			$stmt->execute();
 			$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return $res;
+		}
+
+		public function del($idhouse){
+			$sql = 'DELETE  from rent_house.saves where idhouse = :idhouse and iduser = :iduser';
+			$stmt = $this->connect->prepare($sql);
+			$stmt->bindValue(':idhouse',$idhouse);
+			$iduser = $this->getIduser($_SESSION['username']);
+			$stmt->bindValue(':iduser', $iduser);
+			if($stmt->execute()) return 1;
+			return 0;
 		}
 
 	}

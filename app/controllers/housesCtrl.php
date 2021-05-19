@@ -124,6 +124,11 @@
 		    return $randomString;
 		}
 
+		public function getFromSave($listId){
+			$listHouseSaved = $this->model->getHouseById($listId);
+			// print_r($listHouseSaved);
+			return $listHouseSaved;
+		}
 		// public function getId(){
 		// 	$user = $_SESSION['username'];
 		// 	$this->model->getIduser($user);

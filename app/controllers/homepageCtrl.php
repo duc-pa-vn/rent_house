@@ -55,8 +55,11 @@
 		}
 
 		public function savePage(){
-			$list = $this->savesCtrl->getSaved();
-			$this->view('save',$list);
+			$listId = $this->savesCtrl->getSaved();
+			// print_r($listId);
+			$data = $this->housesCtrl->getFromSave($listId);
+			// print_r($data);
+			$this->view('save',$data);
 		}
 		
 	}

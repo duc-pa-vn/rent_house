@@ -16,14 +16,28 @@
 			border: solid;
 			padding: 10px;
 		}
+		.item_house{
+			border: dotted;
+		}
 	</style>
 </head>
 <body>
 	<?php include "header.php" ?>
-	<?php 
-		echo "<pre>";
-		print_r($list);
-		echo "</pre>";
-	 ?>
+	<div class="list">
+			<?php 
+				foreach ($data as $key => $value) {
+					echo "<div class=\"item_house\">";
+					// echo "<div class=\"item_info\">";
+					echo "dia chi: ".$value['addr']."<br>".
+						"loai nha: ".$value['type']."<br>".
+						"dien tich: ".$value['s']."<br>".
+						"gia: ".$value['cost']."<br>".
+						"thong tin them: ".$value['scribble'];
+					echo "</div><br>";
+					echo "<a href=\"http://localhost:8088/public?url=saves/del/".$value['id']."\">xoa</a>";
+				}
+			 ?>
+	</div>
+	
 </body>
 </html>

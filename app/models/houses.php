@@ -63,4 +63,23 @@
 				return $id['id'];
 			}
 
+			public function getHouseById($listId){
+				$count = count($listId);
+				$con = "(";
+				for(  $i = 0; $i < $count-1; $i++){
+					$con .= " :id".$i.",";
+				}
+				$count--;
+				$con .= " :id".$count." )";
+				$sql = "SELECT * FROM rent_house.houses where id IN ".$con;
+				$stmt = $this->connect->prepare($sql);
+				$i = 0;
+				foreach ($listId as $key => $value) {
+					$stmt->bindValue(":id".$i, $value['idhouse']);
+					$i++;
+				}
+				$stmt->execute();
+				$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				return $res;
+			}
 		}	

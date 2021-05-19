@@ -76,9 +76,9 @@
 </head>
 <body>
 	<?php include "header.php" ?>
-	<div class="saveReport"></div>
 	<div>
 		<?php include "filter.php" ?>
+		<div id="saveReport" style="background-color: lightgreen;"></div>
 		<div id="listhouse">
 			<div >
 				<div class="display1">
@@ -118,7 +118,7 @@
 								if(isset($_SESSION['username']))
 								echo "<a href=\"http://localhost:8088/public?url=saves/save/".$value['id']."\">luu</a>";
 								
-								echo "</div>"."<br>";
+								echo "</div><br>";
 
 								// echo $value['img'];
 								// echo "<div>";
@@ -133,6 +133,7 @@
 	</div>
 	
 </div>
+<?php print_r($list) ?>
 </body>
 <script type="text/javascript">
 		var getCookieValue = (name) => (
