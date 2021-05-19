@@ -20,5 +20,10 @@
 </head>
 <body>
 	<?php include "header.php" ?>
+	<?php 
+		echo "<pre>";
+		print_r($list);
+		echo "</pre>";
+	 ?>
 </body>
 </html>

@@ -11,7 +11,7 @@
 				$stmt = $this->connect->prepare($sql);
 				$stmt->execute();
 				$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-				$row = json_encode($row);
+				// $row = json_encode($row);
 				return $row;
 			}       
 			// public function filter
@@ -31,7 +31,7 @@
 				
 				$stmt->execute();
 				$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-				$row = json_encode($row);
+				// $row = json_encode($row);
 				// var_dump($row);
 				return $row;
 			}

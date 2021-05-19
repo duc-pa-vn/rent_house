@@ -4,13 +4,17 @@
  */
 	require_once __DIR__.'/../core/controller.php';
 	require_once __DIR__.'/../controllers/housesCtrl.php';
+	require_once __DIR__.'/../controllers/savesCtrl.php';
 
 	class homepageCtrl extends controller
 	{
 		private $housesCtrl;
+		private $savesCtrl;
 
 		public function __construct(){
 			$this->housesCtrl = new housesCtrl();
+			$this->savesCtrl = new savesCtrl();
+
 			//header('Content-Type: application/json');
 			// echo $data;
 			
@@ -48,6 +52,11 @@
 				setcookie("none_user","dang nhap de su dung chuc nang nay", time() + 1);
 				$this->getAll();
 			}
+		}
+
+		public function savePage(){
+			$list = $this->savesCtrl->getSaved();
+			$this->view('save',$list);
 		}
 		
 	}
