@@ -2,6 +2,9 @@
 	<ul id="ulheader">
 		<?php 
 			if(isset($_SESSION['username'])){
+				echo "<li><a href=\"http://localhost:8088/public?url=homepage/added\">phong cua ban</a></li>";
+			}
+			if(isset($_SESSION['username'])){
 				echo "<li><a href=\"http://localhost:8088/public?url=homepage/savePage\">Da luu</a></li>";
 			}
 		 ?>

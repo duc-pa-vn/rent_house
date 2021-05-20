@@ -62,4 +62,9 @@
 			$this->view('save',$data);
 		}
 		
+		public function added(){
+			$data = $this->housesCtrl->getAdded();
+			$this->view('added', $data);
+		}
+
 	}

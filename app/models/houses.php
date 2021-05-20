@@ -53,6 +53,22 @@
 				return false;
 			}
 
+			public function change($data, $idhouse){
+				$sql = 'UPDATE rent_house.houses set site = :site, addr = :addr, cost = :cost, s = :s, type = :type, scribble = :scribble, img = :img
+						where id = :idhouse';
+				$stmt = $this->connect->prepare($sql);
+				$stmt->bindValue(':site',$data['site']);
+				$stmt->bindValue(':addr',$data['addr']);
+				$stmt->bindValue(':cost',$data['cost']);
+				$stmt->bindValue(':s',$data['s']);
+				$stmt->bindValue(':type',$data['type']);
+				$stmt->bindValue(':scribble',$data['scribble']);
+				$stmt->bindValue(':img',$data['img']);
+				$stmt->bindValue(':idhouse',$idhouse);
+				if($stmt->execute()) return true;
+				return false;
+			}	
+
 			public function getIduser($username){
 				$sql = 'SELECT id FROM rent_house.users where name = :username';
 				$stmt = $this->connect->prepare($sql);
@@ -82,4 +98,25 @@
 				$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				return $res;
 			}
-		}	
+
+			public function getHouseByIduser(){
+				$sql = 'SELECT * from rent_house.houses where iduser = :iduser';
+				$stmt = $this->connect->prepare($sql);
+				$id = $this->getIduser($_SESSION['username']);
+				$stmt->bindValue(':iduser',$id);
+				$stmt->execute();
+				$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				return $res;
+			}
+
+			public function del($idhouse){
+				$sql = 'DELETE  from rent_house.houses where id = :idhouse and iduser = :iduser';
+				$stmt = $this->connect->prepare($sql);
+				$stmt->bindValue(':idhouse',$idhouse);
+				$iduser = $this->getIduser($_SESSION['username']);
+				$stmt->bindValue(':iduser', $iduser);
+				if($stmt->execute()) return 1;
+				return 0;
+			}
+
+}	
