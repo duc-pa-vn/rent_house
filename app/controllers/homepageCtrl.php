@@ -43,7 +43,7 @@
 			// var_dump($dataPost);
 			$data = $housesCtrl->filterHouseCtrl($dataPost);
 			// var_dump($data);
-			$this->view('index',$data); 
+			$this->view('filterPage',$data); 
 		}
 
 		public function addPage(){
